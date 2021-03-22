@@ -1,0 +1,151 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\pagenumbering{arabic}
+\usepackage{fancyhdr}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{eucal}
+\usepackage{parskip} % removes auto indentation for paragraphs
+\usepackage{enumitem} % changes the indexing for enumerate
+%\setlist[enumerate,1]{label = {(\alph*)}}
+
+\usepackage{mathtools} % used for making a ceiling function
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil} %create ceiling function as \ceil{x}, \ceil*{x} to add \left and \right
+
+\usepackage{listings} % import code into latex
+
+\usepackage{algorithm} % used to write algorithms
+\usepackage[noend]{algpseudocode}
+
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\newcommand{\Mod}[1]{\ (\text{mod}\ #1)}
+\newcommand{\Problem}[1]{\textbf{Problem #1}}
+\newcommand{\li}[0]{\liminf_{n\to\infty}}
+\newcommand{\ls}[0]{\limsup_{n\to\infty}}
+\newcommand{\dl}[2]{\displaystyle\lim_{#1 \to #2}}
+\newcommand{\ds}[2]{\displaystyle\sum_{#1}^{#2}}
+\newcommand{\ra}{\Rightarrow}
+
+\linespread{1.5}
+
+\usepackage{float}
+
+\title{CSE 6140 - Homework 2}
+\author{Alexander Winkles}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\vspace{2in}
+
+For assignment 2, I worked with Willian Kong and Haodong Sun.
+I utilized the class textbooks (Kleinberg, CLRS, and Benoit) as well as the website ``GeeksForGeeks'' for different perspectives on designing the algorithms.
+
+\newpage
+
+\Problem{1}
+
+\begin{enumerate}
+
+\item Consider a greedy solution that sorts by smallest $t_i$. 
+This is not optimal, consider three emails of weights 1, 2, and 200 with times 1, 2, and 5 respectively. 
+The greedy solution gives $\sum_{i=1}^3w_iC_i = 1607$, where if we order by weight this value becomes $1022$. 
+Thus this is not optimal by counter example.
+
+\item Consider a greedy solution that sorts by largest $w_i$.
+This is not optimal - consider two emails of weights 200 and 100 with times 200 and 1 respectively.
+The greedy solution gives 60100, where if we swap the two emails we the value becomes 40300.
+Thus this is not optimal by counter example.
+
+\item This greedy algorithm is optimal. 
+Consider an optimal solution $O$ and a greedy solution $A$. 
+Our goal is to use an exchange argument to gradually transform $O$ into $A$ without increasing the overall cost.
+We define an \textit{inversion} to be a pair of jobs $i$ and $j$ such that $\frac{w_i}{t_i} > \frac{w_j}{t_j}$ but $j$ is scheduled before $i$.
+By defintion of the greedy algorithm, $A$ has no inversions. 
+Because $O$ and $A$ are solutions to the same set of emails, they take the same total amount of time. 
+Swapping any inverted jobs will not increase the cost of the solution. 
+Now if $O$ has any inversion, then it has a consecutive pair of emails that are inverted and thus can be swapped without increasing the overall cost. 
+By swapping all inversions found in $O$, we arrive at a solution identical to $A$.
+
+\end{enumerate}
+
+\Problem{2}
+
+\begin{enumerate}
+
+\item The indices are 4 and 7, with a sum of 32. 
+
+\item 
+
+\textbf{Algorithm:}
+\begin{enumerate}
+
+\item Divide the list into two sublists.
+\item Return the maximum of the following values:
+\begin{enumerate}
+\item Maximum sum of left subarray, using a recursive method
+\item Maximum sum of right subarray, using a recursive method
+\item Maximum sum of subarray that includes middle point
+\end{enumerate}
+
+\end{enumerate}
+
+Because the maximum sums of the left and right array use recursive methods, they have a time complexity of $T(n) = 2T(n/2) + \Theta(n)$. 
+Using the Master Theorem, this algorithm is $\Theta(n\log{n})$. 
+
+\item 
+
+A linear time algorithm would be such:
+
+\textbf{Algorithm:}
+
+\begin{enumerate}
+
+\item $val1 = val2 = T[0]$
+\item for $x \in T - {T[0]}$
+\begin{enumerate}
+\item $val1 = max{x, val1 + x}$
+\item $val2 = max{val1,val2}$
+\end{enumerate}
+\item return $val2$
+
+\end{enumerate}
+
+\end{enumerate}
+
+\Problem{3}
+
+\begin{enumerate}
+
+\item By the Master Theorem, $a = 49$, $b = 7$, and $d = 2$, so $T(n) \in \Theta(n^2\log{n})$.
+\item In this problem $a = \frac{1}{4}$, $b = 9$, and $d = 1$, so the Theorem does not apply as $a \geq 1$ is required. 
+\item In this problem $a = 4$, $b = 2$, and $d = 2$. Since this problem is not monotonically increasing, we may not apply the theorem.
+\item In this problem $a = 2$, $b = 4$, and $d = 0.6$. Thus by the Master Theorem, $T(n) \in \Theta(n^{0.6})$.
+\item In this problem $a = 3$, $b = 2$ and $d = 0$. Thus by the Master Theorem, $T(n) \in \Theta(n^{\log_2{3}})$.
+
+\end{enumerate}
+
+\Problem{4}
+
+\begin{enumerate}
+
+\item To start, we will prove the problem has optimal substructure. 
+
+
+\end{enumerate}
+
+\end{document}

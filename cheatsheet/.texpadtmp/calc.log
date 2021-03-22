@@ -1,0 +1,1084 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdftex 2015.5.24)  7 DEC 2017 18:09
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**calc.tex
+(./calc.tex
+./calc.tex:4: Undefined control sequence.
+l.4 \NDis
+          1 10pt
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:5: Undefined control sequence.
+l.5 \Fm
+        {d(cu) \over dx} = c \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:5: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \over 
+l.5 \Fm {d(cu) \over
+                     dx} = c \dudx, \Mf
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./calc.tex:5: Extra }, or forgotten $.
+l.5 \Fm {d(cu) \over dx}
+                         = c \dudx, \Mf
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./calc.tex:5: Undefined control sequence.
+l.5 \Fm {d(cu) \over dx} = c \dudx, \Mf
+                                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:6: Undefined control sequence.
+l.6 \Fm
+        {d(u+v) \over dx} = \dudx + {dv \over dx}, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:6: Undefined control sequence.
+l.6 ...u+v) \over dx} = \dudx + {dv \over dx}, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:7: Undefined control sequence.
+l.7 \Fm
+        {d(uv) \over dx} = u {dv \over dx} + v \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:7: Undefined control sequence.
+l.7 ... \over dx} = u {dv \over dx} + v \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:8: Undefined control sequence.
+l.8 \Fm
+        {d(u^n) \over dx} = nu^{n-1}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:8: Undefined control sequence.
+l.8 \Fm {d(u^n) \over dx} = nu^{n-1}\dudx, \Mf
+                                              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:9: Undefined control sequence.
+l.9 \Fm
+        {d(u/v) \over dx} = {v\big(\dudx\big) - u\big({dv \over dx}\big) \ov...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:9: Undefined control sequence.
+l.9 ... - u\big({dv \over dx}\big) \over v^2}, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:10: Undefined control sequence.
+l.10 \Fm
+         {d(e^{cu}) \over dx} = ce^{cu}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:10: Undefined control sequence.
+l.10 \Fm {d(e^{cu}) \over dx} = ce^{cu}\dudx, \Mf
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:11: Undefined control sequence.
+l.11 \Fm
+         {d(c^u) \over dx} = (\ln c) c^u\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:11: Undefined control sequence.
+l.11 \Fm {d(c^u) \over dx} = (\ln c) c^u\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:12: Undefined control sequence.
+l.12 \Fm
+         {d(\ln u) \over dx} = {1 \over u} \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:12: Undefined control sequence.
+l.12 ...(\ln u) \over dx} = {1 \over u} \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:13: Undefined control sequence.
+l.13 \Fm
+         {d(\sin u) \over dx} = \cos u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:13: Undefined control sequence.
+l.13 \Fm {d(\sin u) \over dx} = \cos u \dudx, \Mf
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:14: Undefined control sequence.
+l.14 \Fm
+         {d(\cos u) \over dx} = - \sin u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:14: Undefined control sequence.
+l.14 ...{d(\cos u) \over dx} = - \sin u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:15: Undefined control sequence.
+l.15 \Fm
+         {d(\tan u) \over dx} = \sec^2 u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:15: Undefined control sequence.
+l.15 ...{d(\tan u) \over dx} = \sec^2 u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:16: Undefined control sequence.
+l.16 \Fm
+         {d(\cot u) \over dx} = \csc^2 u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:16: Undefined control sequence.
+l.16 ...{d(\cot u) \over dx} = \csc^2 u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:17: Undefined control sequence.
+l.17 \Fm
+         {d(\sec u) \over dx} = \tan u \,\sec u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:17: Undefined control sequence.
+l.17 ... u) \over dx} = \tan u \,\sec u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:18: Undefined control sequence.
+l.18 \Fm
+         {d(\csc u) \over dx} = - \cot u \,\csc u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:18: Undefined control sequence.
+l.18 ...) \over dx} = - \cot u \,\csc u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:19: Undefined control sequence.
+l.19 \Fm
+         {d(\arcsin u) \over dx} = {1 \over \sqrt{1 - u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:19: Undefined control sequence.
+l.19 ...r dx} = {1 \over \sqrt{1 - u^2}}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:20: Undefined control sequence.
+l.20 \Fm
+         {d(\arccos u) \over dx} = {-1 \over \sqrt{1 - u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:20: Undefined control sequence.
+l.20 ... dx} = {-1 \over \sqrt{1 - u^2}}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:21: Undefined control sequence.
+l.21 \Fm
+         {d(\arctan u) \over dx} = {1 \over 1 + u^2}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:21: Undefined control sequence.
+l.21 ...u) \over dx} = {1 \over 1 + u^2}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:22: Undefined control sequence.
+l.22 \Fm
+         {d(\arccot u) \over dx} = {-1 \over 1 + u^2}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:22: Undefined control sequence.
+l.22 \Fm {d(\arccot
+                    u) \over dx} = {-1 \over 1 + u^2}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:22: Undefined control sequence.
+l.22 ...) \over dx} = {-1 \over 1 + u^2}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:23: Undefined control sequence.
+l.23 \Fm
+         {d(\arcsec u) \over dx} = {1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:23: Undefined control sequence.
+l.23 \Fm {d(\arcsec
+                    u) \over dx} = {1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:23: Undefined control sequence.
+l.23 ...dx} = {1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:24: Undefined control sequence.
+l.24 \Fm
+         {d(\arccsc u) \over dx} = {-1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:24: Undefined control sequence.
+l.24 \Fm {d(\arccsc
+                    u) \over dx} = {-1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:24: Undefined control sequence.
+l.24 ...x} = {-1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:25: Undefined control sequence.
+l.25 \Fm
+         {d(\sinh u) \over dx} = \cosh u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:25: Undefined control sequence.
+l.25 ...{d(\sinh u) \over dx} = \cosh u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:26: Undefined control sequence.
+l.26 \Fm
+         {d(\cosh u) \over dx} = \sinh u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:26: Undefined control sequence.
+l.26 ...{d(\cosh u) \over dx} = \sinh u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:27: Undefined control sequence.
+l.27 \Fm
+         {d(\tanh u) \over dx} = \sech^2 u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:27: Undefined control sequence.
+l.27 \Fm {d(\tanh u) \over dx} = \sech
+                                      ^2 u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:27: Undefined control sequence.
+l.27 ...(\tanh u) \over dx} = \sech^2 u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:28: Undefined control sequence.
+l.28 \Fm
+         {d(\coth u) \over dx} = -\csch^2 u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:28: Undefined control sequence.
+l.28 \Fm {d(\coth u) \over dx} = -\csch
+                                       ^2 u \dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:28: Undefined control sequence.
+l.28 ...\coth u) \over dx} = -\csch^2 u \dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:29: Undefined control sequence.
+l.29 \Fm
+         {d(\sech u) \over dx} = -\sech u \,\tanh u\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:29: Undefined control sequence.
+l.29 \Fm {d(\sech
+                  u) \over dx} = -\sech u \,\tanh u\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:29: Undefined control sequence.
+l.29 \Fm {d(\sech u) \over dx} = -\sech
+                                        u \,\tanh u\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:29: Undefined control sequence.
+l.29 ...) \over dx} = -\sech u \,\tanh u\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:30: Undefined control sequence.
+l.30 \Fm
+         {d(\csch u) \over dx} = -\csch u \,\coth u\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:30: Undefined control sequence.
+l.30 \Fm {d(\csch
+                  u) \over dx} = -\csch u \,\coth u\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:30: Undefined control sequence.
+l.30 \Fm {d(\csch u) \over dx} = -\csch
+                                        u \,\coth u\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:30: Undefined control sequence.
+l.30 ...) \over dx} = -\csch u \,\coth u\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:31: Undefined control sequence.
+l.31 \Fm
+         {d(\arcsinh u) \over dx} = {1 \over \sqrt{1 + u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:31: Undefined control sequence.
+l.31 \Fm {d(\arcsinh
+                     u) \over dx} = {1 \over \sqrt{1 + u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:31: Undefined control sequence.
+l.31 ...r dx} = {1 \over \sqrt{1 + u^2}}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:32: Undefined control sequence.
+l.32 \Fm
+         {d(\arccosh u) \over dx} = {1 \over \sqrt{u^2 - 1}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:32: Undefined control sequence.
+l.32 \Fm {d(\arccosh
+                     u) \over dx} = {1 \over \sqrt{u^2 - 1}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:32: Undefined control sequence.
+l.32 ...r dx} = {1 \over \sqrt{u^2 - 1}}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:33: Undefined control sequence.
+l.33 \Fm
+         {d(\arctanh u) \over dx} = {1 \over 1 - u^2}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:33: Undefined control sequence.
+l.33 \Fm {d(\arctanh
+                     u) \over dx} = {1 \over 1 - u^2}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:33: Undefined control sequence.
+l.33 ...u) \over dx} = {1 \over 1 - u^2}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:34: Undefined control sequence.
+l.34 \Fm
+         {d(\arccoth u) \over dx} = {1 \over u^2 - 1}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:34: Undefined control sequence.
+l.34 \Fm {d(\arccoth
+                     u) \over dx} = {1 \over u^2 - 1}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:34: Undefined control sequence.
+l.34 ...u) \over dx} = {1 \over u^2 - 1}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:35: Undefined control sequence.
+l.35 \Fm
+         {d(\arcsech u) \over dx} = {-1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:35: Undefined control sequence.
+l.35 \Fm {d(\arcsech
+                     u) \over dx} = {-1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:35: Undefined control sequence.
+l.35 ...x} = {-1 \over u \sqrt{1 - u^2}}\dudx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:36: Undefined control sequence.
+l.36 \Fm
+         {d(\arccsch u) \over dx} = {-1 \over \vert u \vert \sqrt{1 + u^2}}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:36: Undefined control sequence.
+l.36 \Fm {d(\arccsch
+                     u) \over dx} = {-1 \over \vert u \vert \sqrt{1 + u^2}}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:36: Undefined control sequence.
+l.36 ...er \vert u \vert \sqrt{1 + u^2}}\dudx. \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:37: Undefined control sequence.
+l.37 \EndDis
+            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:39: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \vskip 
+l.39 \vskip
+            -6pt
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (1726.65742pt too wide) in paragraph at lines 4--39
+[]\tenrm 1 10pt d(cu) $[]$ |
+
+\hbox(7.5+18.74052)x469.75499, glue set - 1.0
+.\hbox(0.0+0.0)x20.0
+.\tenrm 1
+.\glue 3.33333 plus 1.66666 minus 1.11111
+.\tenrm 1
+.\tenrm 0
+.etc.
+
+./calc.tex:40: Undefined control sequence.
+l.40 \NDis
+           1 10pt
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:41: Undefined control sequence.
+l.41 \Fm
+         \int c u \, dx = c \int u \, dx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:41: Missing $ inserted.
+<inserted text> 
+                $
+<to be read again> 
+                   \intop 
+\int ->\intop 
+              \nolimits 
+l.41 \Fm \int
+              c u \, dx = c \int u \, dx, \Mf
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./calc.tex:41: Undefined control sequence.
+l.41 \Fm \int c u \, dx = c \int u \, dx, \Mf
+                                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:42: Undefined control sequence.
+l.42 \Fm
+         \int (u + v) \, dx = \int u \, dx + \int v \, dx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:42: Undefined control sequence.
+l.42 ...) \, dx = \int u \, dx + \int v \, dx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:43: Undefined control sequence.
+l.43 \Fm
+         \int x^n \, dx = {1 \over n+1}x^{n+1}, \quad n \neq -1, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:43: Undefined control sequence.
+l.43 ...{1 \over n+1}x^{n+1}, \quad n \neq -1, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:44: Undefined control sequence.
+l.44 \Fm
+         \int {1 \over x} dx = \ln x, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:44: Undefined control sequence.
+l.44 \Fm \int {1 \over x} dx = \ln x, \Mf
+                                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:45: Undefined control sequence.
+l.45 \Fm
+         \int e^x \, dx = e^x, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:45: Undefined control sequence.
+l.45 \Fm \int e^x \, dx = e^x, \Mf
+                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:46: Undefined control sequence.
+l.46 \Fm
+         \int {dx \over 1 + x^2} = \arctan x, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:46: Undefined control sequence.
+l.46 \Fm \int {dx \over 1 + x^2} = \arctan x, \Mf
+                                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:47: Undefined control sequence.
+l.47 \Fm
+         \int u {dv \over dx} dx = uv - \int v {du \over dx} dx, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:47: Undefined control sequence.
+l.47 ...dx} dx = uv - \int v {du \over dx} dx, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:48: Undefined control sequence.
+l.48 \Fm
+         \int \sin x \, dx = -\cos x, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:48: Undefined control sequence.
+l.48 \Fm \int \sin x \, dx = -\cos x, \Mf
+                                         
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:49: Undefined control sequence.
+l.49 \Fm
+         \int \cos x \, dx = \sin x, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:49: Undefined control sequence.
+l.49 \Fm \int \cos x \, dx = \sin x, \Mf
+                                        
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:50: Undefined control sequence.
+l.50 \Fm
+         \int \tan x \, dx = -\ln \vert \cos x \vert, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:50: Undefined control sequence.
+l.50 ...tan x \, dx = -\ln \vert \cos x \vert, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:51: Undefined control sequence.
+l.51 \Fm
+         \int \cot x \, dx = \ln \vert \cos x \vert, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:51: Undefined control sequence.
+l.51 ...\cot x \, dx = \ln \vert \cos x \vert, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:52: Undefined control sequence.
+l.52 \Fm
+         \int \sec x \, dx = \ln \vert \sec x + \tan x \vert, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:52: Undefined control sequence.
+l.52 ... dx = \ln \vert \sec x + \tan x \vert, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:53: Undefined control sequence.
+l.53 \Fm
+         \int \csc x \, dx = \ln \vert \csc x + \cot x \vert, \Mf
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:53: Undefined control sequence.
+l.53 ... dx = \ln \vert \csc x + \cot x \vert, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:54: Undefined control sequence.
+l.54 \Fm
+         \int \arcsin \sfrac x a dx = \arcsin \sfrac x a + \sqrt{a^2 - x^2},...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:54: Undefined control sequence.
+l.54 \Fm \int \arcsin \sfrac
+                             x a dx = \arcsin \sfrac x a + \sqrt{a^2 - x^2},...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:54: Undefined control sequence.
+l.54 ...int \arcsin \sfrac x a dx = \arcsin \sfrac
+                                                   x a + \sqrt{a^2 - x^2}, \...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:54: Undefined control sequence.
+l.54 ...sqrt{a^2 - x^2}, \quad \hbox{$a > 0$}, \Mf
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./calc.tex:55: Undefined control sequence.
+l.55 \EndDis
+            
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+! Emergency stop.
+<*> calc.tex
+            
+*** (job aborted, no legal \end found)
+
+!  ==> Fatal error occurred, no output PDF file produced!

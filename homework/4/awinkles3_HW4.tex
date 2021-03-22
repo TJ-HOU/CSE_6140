@@ -1,0 +1,219 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\pagenumbering{arabic}
+\usepackage{fancyhdr}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{eucal}
+\usepackage{parskip} % removes auto indentation for paragraphs
+\usepackage{enumitem} % changes the indexing for enumerate
+%\setlist[enumerate,1]{label = {(\alph*)}}
+
+\usepackage{mathtools} % used for making a ceiling function
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil} %create ceiling function as \ceil{x}, \ceil*{x} to add \left and \right
+
+\usepackage{listings} % import code into latex
+
+\usepackage{algorithm} % used to write algorithms
+\usepackage[noend]{algpseudocode}
+
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\newcommand{\Mod}[1]{\ (\text{mod}\ #1)}
+\newcommand{\Problem}[1]{\textbf{\large Problem #1}}
+\newcommand{\li}[0]{\liminf_{n\to\infty}}
+\newcommand{\ls}[0]{\limsup_{n\to\infty}}
+\newcommand{\dl}[2]{\displaystyle\lim_{#1 \to #2}}
+\newcommand{\ds}[2]{\displaystyle\sum_{#1}^{#2}}
+\newcommand{\ra}{\Rightarrow}
+
+\linespread{1.5}
+
+\usepackage{float}
+
+\title{CSE 6140 - Homework 4}
+\author{Alexander Winkles}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\vspace{2in}
+
+
+
+\newpage
+
+\Problem{1}
+
+\begin{enumerate}
+\item We will first design a branch-and-bound algorithm for minimum set cover.
+Consider a universe of elements $U$ and a collection of sets $S$ such that $\bigcup_{x \in S} x = U$. 
+\begin{enumerate}
+\item Our subproblem will be a subset of $S$ that we check to see if $\bigcup_{x \in S} x = U$.
+\item To chose a subproblem to expand, we pick an element of $S$ (possibly based on size or arbitrarily) and remove it. 
+\item We expand our subproblem by removing one set $y \in S$ and checking if $\bigcup_{x \in S-\{y\}} x = U$. 
+\item An appropriate lower bound will be the size of $S$ each step. 
+\end{enumerate}
+
+With all of this in mind, our algorithm is this: 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{BnB\_SetCover}{$U,S$}
+\State $P \gets \{S\}$ \Comment{Assigns $S$ to active subproblems}
+\State $\text{Sol} \gets 0$ \Comment{Assigns initial solution}
+\State $\text{bestval} \gets \infty$ \Comment{Assigns initial bound}
+\While {$P \neq \emptyset$}
+\State \textbf{choose} $T \in P$ \Comment{Chooses a subproblem}
+\State $P \gets P - \{T\}$ \Comment{Removes subproblem from set}
+\For {$i \in T$} \Comment{Expands current subproblem into smaller ones}
+\State $T_i = T-\{i\}$
+\EndFor
+\For {$T_i$}
+\State $K \gets \bigcup_{x\in T_i} x$
+\If {$K = U \And |T_i| < \text{bestval}$} \Comment{Checks if subproblem is a solution}
+\State $\text{Sol} \gets T_i$ 
+\State $\text{bestval} \gets |T_i|$ 
+\EndIf
+\If {$lowerbound(T_i) \leq \text{bestval} \And |T_i| \neq \emptyset$} \Comment{Adds back to subproblem set}
+\State $P \gets P \cup T_i$
+\EndIf
+\EndFor
+\EndWhile
+\State \Return {$\text{Sol}$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+I believe this algorithm will work well for minimum set cover problems, as it does a good job of pruning solutions that are not minimal. 
+
+\item Now we will design a greedy heuristic. 
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+	\Procedure{Approx\_SetCover}{$U,S$}
+	\State $P \gets \{ \}$
+	\For {$s_i \in S$}
+	\If {$(x \in s_i) \notin P$}
+	\State $P \gets P \cup \{s_i\}$
+	\State \textbf{break if statement}
+	\EndIf
+	\If {$\bigcup P = U$}
+	\State \textbf{return} $P$
+	\EndIf
+	\EndFor
+	\State \Return NO SOLUTION
+	\EndProcedure
+\end{algorithmic}	
+\end{algorithm}
+
+This approximation algorithm goes through every $s_i \in S$ and checks if it has an element that is not found in any subset within $P$. 
+If a new element is found, $s_i$ is added to $P$. 
+This process is continued until either a solution is found or all $s_i$ have been checked, in which case there is no solution. 
+Because it searches through the entire set $S$, it is guaranteed to find a set cover (if one exists), though it is unlikely to be the minimum. 
+Technically, there are two for loops nested within the $\textbf{for } s_i \in S$ loop. 
+The first one will have a worst case of $\mathcal{O}(|s_i||P|)$ while the second will have a worst case of $\mathcal{O}(|P||U|)$. 
+Suppose $|U| = n$, then this becomes $\mathcal{O}(n^2)$.
+Additionally, suppose that $|s_i| = n$ in a worst case scenario, then our overall time complexity will be $\mathcal{O}(n^3)$. 
+Obviously this is not an ideal running time, but it is polynomial and guarantees a solution. 
+
+\item For a Local Search solution to this problem, a possible scoring function would be how many elements in the universe are found in a candidate solution. 
+A neighborhood for this problem would be either adding a new subset, removing a new subset, or swapping a subset with one that is not in the candidate solution. 
+This thus has $\mathcal{O}(n^3)$ neighbors, one $n$ per each move as we could have a set cover with no subsets and thus have to add a subset, we could have all the subsets and attempt to remove one, or we could be somewhere in between and swap subsets.
+Using Tabu memory would be beneficial as it would avoid cycles and help our algorithm not be stuck in a local optima. 
+The Tabu memory would remember subsets that have already been checked in the candidate solution, which would reduce repeats. 
+\end{enumerate}
+
+\Problem{2}
+
+\begin{enumerate}
+\item In this greedy strategy, we take the containers in order and add them to trucks. 
+Consider $W = \{0.5, 1.0, 0.5\}$.
+By the algorithm provided, this will require 3 trucks, as the first truck will take 0.5, then since 1.0 will overload it, 1.0 will go to truck 2, which cannot fit any more, so the last 0.5 will go to truck three.
+However, the optimal number of trucks for this is 2, one that holds both 0.5 and the other that holds the 1.0.	
+\item Let $W = \sum_{i=1}^n w_i$ be the total weight of all the containers and let $t^*$ be the minimum number of trucks required. 
+Let $t$ be the solution given by the greedy algorithm. 
+We know that $W \leq t^*$, because otherwise we would need additional trucks to carry all of the containers. 
+\item Now suppose that the algorithm uses an even number of trucks consecutively, so $t = 2z$.
+Because there are two of them, the lowest bound on their weight is $\frac{1}{2}$, because if it was less then the containers could be fit on one truck rather than two.  
+Thus from this we see that $t \leq 2W$ using the fact that $t = 2z$. 
+\item Combing the above parts, we see that $t \leq 2W \leq 2t^*$, thus $t \leq 2t^*$, proving that the algorithm has an approximation ratio of 2. 
+\item Suppose now that there are an odd number of trucks, so $t = 2z + 1$. 
+By a similar logic from above, the minimum weight of $z \geq \frac{1}{2}$, for otherwise the weight could be consolidated on fewer trucks. 
+Thus we find that $t \leq 2W + 1$.
+Combining this with above results shows $t \leq 2W + 1 \leq 2t^* + 1$.
+Thus the algorithm is still a 2-approximation algorithm, with $\epsilon = 1$. 
+\item Suppose for contradiction that more than one truck is less than half full.
+This means that there are two trucks, called $t_1,t_2$ respectively, each with less than 0.5 tons of container weight. 
+But by construction of the algorithm, the weight being placed in $t_2$ implies that the weight could not be placed in $t_1$ without overloading it. 
+This implies that the weight in $t_1$ is greater than 0.5 tons, as the weight placed in $t_2$ is less than.
+This contradicts the assumption that $t_1$ is less than half full, which completes our proof.
+\item The smallest number of containers a truck can hold is 1. 
+Thus in a worst case scenario, ie each container has weight $w_i \in (0.5,1]$,  
+Consider each container to have the smallest of these weights.
+Then it will be the case that $t \approx 2W$, as each truck is missing about $W$ weight in this scenario. 
+If the containers all weigh more than that, the approximation slowly approaches $t \approx 1$. 
+If the containers weigh less, then multiple containers can be places on individual trucks, which likewise reduces the approximation. 
+Thus $t \leq \ceil{2W}$ are required. 
+\item By the above statement, we know that $t \leq \ceil{2W}$. 
+Additionally we know that $W \leq t^*$.
+Combining these gives us $t \leq 2t^*$ as desired. x
+\end{enumerate}
+
+\Problem{3}
+
+\begin{enumerate}
+\item For the independent set problem, assign each vertex a variable $x_i$, where $x_i \in \{0,1\}$. 
+Then the integer linear programming solution is as follows:
+\begin{equation*}
+\begin{array}{ll@{}ll}
+\text{minimize} & \displaystyle\sum x_i\\
+\text{subject to} & x_i + x_j \leq 1 &, (i,j) \in E\\
+& x \in \{0,1\} &
+\end{array}
+\end{equation*}
+Thus, if there are $n$ vertices and $m$ edges, then there will be $n$ variables and $m$ constraints. 
+
+\item For this facility location problem, we can frame it as an integer linear programming problem as follows, where $y_i = 1$ represents a facility being opened and $x_{ij} = 1$ represents client $j$ being assigned to facility $i$:
+\begin{equation*}
+\begin{array}{ll@{}ll}
+\text{minimize} & \displaystyle\sum_{i = 1}^n f_i y_i + \displaystyle\sum_{i = 1}^n\displaystyle\sum_{j = 1}^m c_{ij}x_{ij}\\ 
+\text{subject to} & \displaystyle\sum_{i = 1}^n x_{ij} = 1 \text{ for } j = 1,2,...,m \\
+& x_{ij} \leq y_i \text{ for } i = 1,...,n; j = 1,...,m \\
+& x_{ij},y_i \in \{0,1\} &
+\end{array}
+\end{equation*}
+This has $m$ constrains and $mn + n$ variables. 
+
+\item We frame the sudoku problem as an integer linear programming problem as follows.
+Let $x_{ijk} \in \{0,1\}$ represent if the number $k$ is on row $i$ and column $j$ of the $n^2 \times n^2$ grid. 
+Then:
+\begin{equation*}
+\begin{array}{ll@{}ll}
+\displaystyle\sum_{j = 1}^{n^2} x_{ijk} = 1 \\
+\displaystyle\sum_{i = 1}^{n^2} x_{ijk} = 1 \\
+\displaystyle\sum_{i = 1}^{n} \displaystyle\sum_{j = 1}^{n} x_{(i + U),(j + V),k} = 1\\
+x_{ijk} \in \{0,1\} \\
+U,V \in \{0,n,2n,...,(n-1)(n)\}
+\end{array}
+\end{equation*}
+This uses $n^2 \times n^2$ variables and has three forms of constraints.
+The first line represents that each $k$ can only appear in each row once, the second line represents that each $k$ can only appear in each column once, and the third line represents that each $k$ can only be found in each sub $n \times n$ grid once. 
+
+\end{enumerate}
+
+
+
+\end{document}

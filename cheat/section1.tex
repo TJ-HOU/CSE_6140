@@ -1,0 +1,624 @@
+\section*{Running Time and Growth}
+The \textit{time complexity} $T(n)$ of an algorithm is the maximum amount of time taken on any input of size $n$.
+
+$T(n) \in \mathcal{O}(g(n))$ if $\exists c > 0$ and $n_0 \geq 0$ s.t. $\forall n \geq n \Rightarrow T(n) \leq c *g(n)$.
+
+$T(n) \in \Omega (g(n))$ if $\exists c > 0$ and $n_0 \geq 0$ s.t. $\forall n \geq n \Rightarrow T(n) \geq c *g(n)$.
+
+$T(n) \in \Theta (g(n))$ if $T(n) \in \mathcal{O}(g(n))$ and  $T(n) \in \Omega (g(n))$. 
+
+Order: $\mathcal{O}(\log_a n) < \mathcal{O}(n^d) < \mathcal{O}(r^n)$
+
+\begin{tabular}{|l|l|}
+\hline
+$\mathcal{O}(\log n)$ & binary search s. list \\
+$\mathcal{O}(n)$ & max element in list \\
+$\mathcal{O}(n \log n)$ & sort elements \\
+$\mathcal{O}(n^2)$ & find pair of closest \\
+$\mathcal{O}(n^3 )$ & find disjoint sets \\
+$\mathcal{O}(n^k)$ & check $\exists e = (u,v)$\\
+$\mathcal{O}(2^n)$ & enum all subsets \\
+$\mathcal{O}(n!)$ & naive TSP \\
+\hline
+\end{tabular}
+
+\section*{Graph Representation}
+\textit{Adjacency matrix}: $n \times n$ matrix with $A_{uv} = 1$ if $(u,v) \in E$. 
+Takes space $n^2$. 
+If $(u,v) \in E$ takes $\Theta(1)$ time. 
+Identifying all $e \in E$ takes $\Theta(n^2)$ time. 
+\textit{Adjacency list}: Node indexed array of lists. 
+Takes space $m + n$.
+If $(u,v) \in E$ takes $\mathcal{O}(deg(u))$ time.
+Identifying all $e \in E$ takes $\Theta(m + n$ time. 
+
+\section*{Greedy Algorithms}
+\textbf{Greedy-choice property}: globally optimal solution with locally optimal choices. 
+
+
+\subsection*{Interval Scheduling}
+Goal: Find maximum subset of mutually compatible jobs. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{IntervalScheduling}{}
+\State \textbf{Sort} by finish time
+\State $A \gets \emptyset$
+\State $f_{j*} = 0$
+\For {$i =1 \text{ to } n$}
+\If  {$s_j \leq f_{j*}$}
+\State $A \gets A \bigcup \{j\}$
+\State $f_{j*} = f_j$
+\EndIf
+\EndFor
+\State \Return {$A$} \Comment{$\mathcal{O}(n \log n)$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{proof}[Proof]
+Let $A: a_1,...,a_k$ be the greedy solution and let $O: o_1,...,m$ with $m \geq k$ be the optimal solution.
+We claim that $\forall r \leq k \Rightarrow f(a_r) \leq f(o_r)$. For $r = 1$, $f(a_1) \leq f(o_1)$ by greedy choice.
+Suppose this holds for $r-1: f(a_{r-1}) \leq f(o_{r-1})$.
+Then $f(o_{r-1}) \leq s(o_r) \leq f(o_r)$ by solution feasibility. 
+Thus $f(a_{r-1}) \leq s(o_r)$, so $o_r$ was an option for greedy not picked. 
+Since $a_r$ was chosen instead, $f(a_r) \leq f(o_r)$. 
+Now assume $k < m$ for contradiction. 
+Then $f(a_k) \leq f(o_k) \leq s(o_{k+1})$ becayse $O$ is feasible, so $o_{k+1}$ is an option for $A$, which contradicts $|A| = k$. 
+\end{proof}
+
+\subsection*{Interval Partiton}
+Goal: Find minimum number of rooms to schedule all jobs without overlaps within a room. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{IntervalPartition}{}
+\State \textbf{Sort} by start time
+\State $d \gets 0$
+\For {$j =1 \text{ to } n$}
+\If  {$j$ compatible with class $k$}
+\State Add $j$ to $k$
+\Else
+\State Add new class room $d + 1$
+\State Add $j$ to $d+1$
+\State $d \gets d+1$ \Comment{$\mathcal{O}(n \log n)$}
+\EndIf
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\begin{proof}[Proof]
+Let $d$ be the number of classrooms from greedy. 
+The last room $d$ is opened because job $j$ was incompatible with $d - 1$ rooms. 
+These rooms have jobs ending after $s_j$.
+Thus we have $d$ lectures overlapping at time $s_j + \epsilon$ and the depth is $\geq d$.
+But the number of rooms $\geq$ depth, so greedy must have $d \geq $ depth, so solution with $d = $ depth is optimal. 
+\end{proof}
+
+\subsection*{Minimize Lateness}
+Goal: Schedule all jobs to minimize maximum lateness $L = \max \ell_j$. 
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{MinLate}{}
+\State \textbf{Sort} by increasing deadline
+\State $t \gets 0$
+\For {$i = j \text{ to } n$}
+\State Assign $j$ to $[t, t+t_j]$
+\State $s_j \gets t,\ f_j \gets t+t_j$
+\State $t \gets t + t_j$
+\EndFor
+\State \Return {Intervals $[s_j,f_j]$} \Comment{$\mathcal{O}(n \log n)$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+\textit{Def.} An \textit{inversion} is a pair of jobs $i$ and $j$ with $d_i < d_j$ but $j$ scheduled before $i$. 
+\begin{proof}[Proof]
+Note that greedy has no idle time, $\exists O$ with no idle time, and greedy has no inversions.
+All schedules with no inversions and no idle time have the same lateness, because all jobs with same $d$ come in a block of consecutive jobs if no inversions.
+Any reordering of these jobs with retain the last job having the lateness $f-d$. 
+Let $\ell$ be the lateness before the swap and $\ell'$ be it after. 
+$\ell'_k = \ell_k\ \forall k \neq i, j$. 
+$\ell'_i \leq \ell_i$ for $i$ moved earlier. 
+$\ell'_j = f'_j - d_j = f_i - d_j \leq f_i - d_i \leq \ell_i$, so swapping inverted jobs does not increase max lateness. 
+Thus there is some $O$ with no inversions and no idle time by this. 
+Since greedy has no idle time or inversions, it has the same lateness as $O$ and is optimal. 
+\end{proof}
+
+\subsection*{Shortest Path}
+Goal: Find shortest directed path from $s$ to other nodes. 
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{Dijkstra}{}
+\State $S \gets \{s\}$
+\State $\pi(s) = 0,\ \pi(i) = \infty, i \neq s$
+\State Add nodes $Q$ keys $\pi(v)$
+\While {$Q \neq \emptyset$}
+\State $u = Q.ExtractMin()$
+\State $S \gets S \bigcup \{u\}$
+\For {$(u,v)$ with $v \notin S$ and $\pi(u) + \ell_{(u,v)} < \pi(v)$}
+\State $Q.ChangeKey(v,\pi(v) = \pi(u) + \ell_{(u,v)}$
+\EndFor
+\EndWhile
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\begin{proof}[Proof]
+For each node $u \in S$, $\pi(u)$ is the shortest length of $s-u$. 
+This is trivially true for $|S| = 1$. 
+Suppose it is true for $|S| = k \geq 1$. 
+Let $v$ be the next node added to $S$ and $u-v$ be the chosen edge.
+The shortest $s-u$ path plus $(u,v)$ is an $s-v$ path of $\pi(v)$. 
+Consider any other $s-v$ path $P$; we will show it is not shorter than $\pi(v)$. 
+Let $x-y$ be the first edge in $P$ that leaves $S$, and let $P'$ be the subpath to $x$.
+$P$ is already too longer, for $\ell(P) \geq \ell(P') + \ell(x,y) \geq \pi(x) + \ell(x,y) \geq \pi(y) \geq \pi(x)$. 	
+\end{proof}
+
+\subsection*{Minimum Spanning Tree}
+\textit{Def.} A \textit{path} is a sequences of edges which connects a sequence of nodes.
+
+\textit{Def.} A \textit{cycle} is a path with no repeated nodes or edges besides the start and end nodes.
+
+\textit{Def.} An undirected graph is a \textit{tree} if it is connected and does not contain a cycle.
+
+\textit{Def.} An undirected graph is a \textit{spanning tree} if it is a tree and touches every vertex in $G$. 
+
+Goal: Given a connected graph $G$, find a tree $T$ that is spanning with minimized sum of edge weights.
+
+\subsubsection*{Prim}
+Greedily grow a tree from a root node. 
+
+\textit{Def.} A \textit{cut} is a partition of nodes into two nonempty sets $S$ and $V - S$.
+
+\textit{Def.} The \textit{cutset} of a cut $S$ is the set of edges with exactly one endpoint in $S$.
+
+\textbf{Cut Property}: Let $S$ be any subset of nodes and let $e$ be the min cost edge with exactly one endpoint in $S$.
+Then every MST contains $e$. 
+
+\begin{proof}[Proof]
+Given $e$ from above and an MST $T^*$.
+Suppose $e \notin T^*$. 
+Then $(u,v) = e$ must be connected by a path in $T^*$ for it to be spanning.
+If we add $e$ to $T^*$ we create a cycle $C$. 
+Thus $\exists f \in C, CutSet(S)$.
+$T' = T^* \bigcup \{e\} - \{f\}$ is also a spanning tree and $c_e < c_f \Rightarrow cost(T') < cost(T^*)$, which is a contradiction.  	
+\end{proof}
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{Prim}{}
+\For {$v \in V$} $a[v] \gets \infty$
+\EndFor
+\State $Q$
+\For {$v \in V$} $Q.add(v)$
+\EndFor
+\State $S \gets \emptyset$
+\While {$Q \neq \emptyset$}
+\State $u = Q.PullMin()$
+\State $S \gets S \bigcup \{u\}$
+\For {$e = (u,v)$}
+\If {$v \notin S$ \& $c_e < a[v]$}
+\State $a[v] = c_e$
+\EndIf
+\EndFor
+\EndWhile
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection*{Reverse-Delete}
+
+\textbf{Cycle property}: Let $C$ be any cycle, and let $f$ be the max cost edge in $C$. 
+Then $f \notin MST$. 
+
+\begin{proof}[Proof]
+Given $f \in C$ from above and an MST $T^*$. 
+Suppose $f \in MST$.
+Deleting $f$ disconnects $T^*$ and creates a cut $S$.
+$f$ is both in $C$ and in $CutSet(S)$, so $\exists e \in C, CutSet(S)$. 
+$T' = T^* \bigcup \{e\} - \{f\}$ is also a spanning tree and $c_e < c_f \Rightarrow cost(T') < cost(T^*)$, which is a contradiction.  	
+\end{proof}
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{Reverse-Delete}{}
+\State $T \gets E$
+\State Order $e \in T$ in descending order of cost
+\For {$e \in T$}
+\If {$T - \{e\}$ does not disconnect $T$} $T - \{e\}$
+\EndIf
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection*{Kruskal}
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{Kruskal}{}
+\State Sort edge weights in descending order
+\State $T \gets \emptyset$
+\For {$u \in V$} Create $\{u\}$
+\EndFor
+\For {$i = 1 \text{ to } m$}
+\State $(u,v) = e_i$
+\If {$u, v$ in different sets}
+\State $T \gets T \bigcup \{e_i\}$
+\State Merge sets containing $u,v$
+\EndIf
+\EndFor
+\State \Return {$T$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Clustering}
+Goal: Given set $U$ of $n$ objects classify into coherent groups. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{Clustering}{}
+\State Form a graph on $U$ with $n$ clusters
+\State Find closest pair of objects in different clusters and add edge between them
+\State Repeat $n - k$ times until there are $k$ clusters
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\section*{Divide-and-Conquer}
+Break up problems into several smaller parts and solve recursively. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{MS}{$L$}
+\State Divide into halves $L, R$
+\State $MS(L), MS(R)$
+\State Combine results
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+Recurrence:
+
+$T(n) = \begin{cases} 0 \hfill n = 1 \\ T(\ceil{n/2}) + T(\floor{(n/2}) + n \end{cases}$
+
+If satisfied, $T(n) \leq n \ceil{\lg{n}}$. 
+\begin{proof}[Proof]
+Base case $n = 1$ is true. 
+Let $n_1 = \floor{n/2}$ and $n_2 = \ceil{n/2}$. 
+Then $T(n) \leq T(n_1) + T(n_2) + n \leq n_1\ceil{\lg{n_1}} + n_2\ceil{\lg{n_2}}	 + n \leq n_1\ceil{\lg{n_2}} + n_2\ceil{\lg{n_2}}	 + n = n\ceil{\lg{n_2}} + n \leq n(\ceil{\lg{n}} - 1) + n = n\ceil{\lg{n}}$. 
+\end{proof}
+
+\subsection*{Master Theorem}
+Let $T(n)$ be a monotonically increasing function with $T(n) = a T(n/b) + f(n)$, $T(1) = c$, where $a \geq 1,\ b \geq 2,\ c > 0$. 
+Then if $f(n) \in \Theta(n^d)$ for $d \geq 0$:
+
+$T(n) = \begin{cases} \Theta(n^d) \hfill \text{if } a < b^d \\
+\Theta(n^d\log{n}) \hfill \text{if } a = b^d \\
+\Theta(n^{\log_b{a}}) \hfill \text{if } a > b^d
+\end{cases}$
+
+This cannot be used if $T(n)$ is not monotone, if $f(n)$ is not polynomial, or if $b$ cannot be expressed as a constant. 
+
+\section*{Dynamic Programming}
+Breaks problem into series of overlapping sub-problems and builds up a solution.
+
+\subsection*{Coin-Changing}
+Goal: Make minimum change for $S$ cents with a finite supply of coins from $C = \{v_1,...,v_n\}$. 
+
+Solve $z(T,i)$ for minimum coins to reach $T \leq S$ with first $i$ coins. 
+
+Uses \textit{memoization} to use values already computed. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{CoinChange}{}
+\For {$T = 1 \text{ to } S$} $z(T,0) \gets \infty$
+\EndFor
+\For {$i = 0 \text{ to } n$} $z(0,i) \gets 0$
+\EndFor
+\For {$i = 1 \text{ to } n$}
+\For {$T = 1 \text{ to } S$}
+\State $z(T,i) \gets z(T,i-1)$
+\If {$T - v \geq 0$}
+\State $z(T,i) \gets \min (z(T,i), z(T-v_i,i))$
+\EndIf
+\EndFor
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Weighted Interval Scheduling}
+Goal: find maximum weight subset of mutually compatible jobs.
+
+Let $p(j)$ be the largest index $i < j$ such that $i$ is compatible with $j$. 
+
+Then this has recurrence relation
+
+$OPT = \begin{cases}
+ 0 \hfill j = 0 \\
+ \max \{ v_j + OPT(p(j)), OPT(j-1)\}
+ \end{cases}$
+ 
+Bottom up algorithm:
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{WIntSch}{$L$}
+\State \textbf{Sort} by increasing $f_i$
+\State \textbf{Compute} $p(i)\ \forall i$ 
+\State $M[0] = 0$
+\For {$j = 1 \text{ to } n$}
+\State $M[j] = \max(v_j + M[p(j)], M[j-1])$
+\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Longest Common Subsequence}
+Goal: Given two strings, find the longest sequence of letters appearing in both, not necessarily contiguously. 
+
+$c[i,j] = \begin{cases}
+ c[i-1,j-1] + 1 \hfill x_i = y_i \\
+ max \{ c[i-1,j],c[i,j-1]\}	
+ \end{cases}$
+ 
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{LSC}{$X,Y$}
+\State $m = len(X),\ n = len(Y)$
+\For {$i = 1 \text{ to } m$} $c[i,0] = 0$
+\EndFor
+\For {$j = 1 \text{ to } n$} $c[0,j] = 0$
+\EndFor
+\For {$i = 1 \text{ to } m$}
+\For {$j = 1  \text{ to } n$}
+\If {$x_i = y_j$}
+\State $c[i,j] = c[i-1,j-1] + 1$
+\Else $c[i,j] = \max (c[i-1,j],c[i,j-1])$
+\EndIf
+\EndFor
+\EndFor
+\State \Return {$c$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Sequence Alignment}
+Goal: Given two strings find alignment of minimum cost. 
+
+\textit{Def.} An \textit{alignment} $M$ is a set of ordered pairs $x_i-y_j$ such that each item occurs in at most one pair and no crossings. 
+
+\textit{Def.} The pair $x_i-y_j$ and $x_{i'}-y_{j'}$ \textit{cross} if $i < i'$ but $j > j'$. 
+
+Let $\alpha$ be a mismatch cost and $\delta$ be an unmatch cost.
+Then:
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{SeqAlign}{$X,Y$}
+\For {$i = 0 \text{ to } m$} $M[i,0] = i\delta$
+\EndFor
+\For {$j = 0 \text{ to } n$} $M[0,j] = j\delta$
+\EndFor
+\For {$i = 1 \text{ to } m$}
+\For {$j = 1  \text{ to } n$}
+\State $M[i,j] = \min(\alpha[x_i,y_j] + M[i-1,j-1], \delta +M[i-1,j], \delta + M[i,j-1])$
+\EndFor
+\EndFor
+\State \Return {$M[m,n]$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Knapsack}
+Goal: Fill knapsack to maximize total value. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{Knapsack}{}
+\For {$w = 0 \text{ to } W$} $M[0,w] = 0$
+\EndFor
+\For {$i = 1 \text{ to } n$}
+\For {$w = 1  \text{ to } W$}
+\If {$w_i > w$}
+\State $M[i,w] = M[i-1,w]$
+\Else
+\State $M[i,j] = \min(M[i-1,w], v_i + M[i-1,w-w_i])$
+\EndIf
+\EndFor
+\EndFor
+\State \Return {$M[n,W]$} \Comment{$\Theta(nW)$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\section*{NPC}
+\textbf{Class P} consists of decision problems that are solvable in poly time. 
+These problems are \textit{tractable}.
+Otherwise problems are \textit{intractable}.
+
+\textbf{Class NP} consists of problems where a candidate solution can be verified in poly time. 
+
+$Y$ is \textbf{NP-Hard} if $X \leq_p Y\ \forall X \in NP$.
+
+$Y$ is \textbf{NPC} if $Y \in NP$ and $Y$ is NP-hard. 
+
+To establish $Y$ is NPC:
+\begin{enumerate}
+\item Show $Y \in NP$
+\item Choose $X$ that is NPC and 
+\item Prove $X \leq_p Y$	
+\end{enumerate}
+
+
+\textbf{Reduction} from $A$ to $B$ is showing that we can solve $A$ using the algorithm that solves $B$. 
+Thus $A$ is easier than $B$. 
+The idea is to transform an instance of $A$ into inputs for $B$ and show that they give identical answers. 
+
+\subsection*{NPC Problems}
+\textbf{Minimum Vertex Cover}: Find the smallest subset $S \subseteq V$ such that each edge has at least one endpoint in $S$. 
+
+\textbf{Set Cover}: Given a universe $U$ and subsets $S_i$ and integer $k$, does there exist a collection of $S_i$ less than $k$ such that $\bigcup S_i = U$.
+
+\textbf{3SAT}: Given a conjunctive normal form $\Phi$ with three literals per clause, find an assignment of values to $x_i$ so that $\Phi$ is True.  
+
+\textbf{Independent Set}: Given a graph, find the largest $S \subseteq V$ with no edges between them. 
+
+\textbf{CLIQUE}: Given a graph, is there a completely connected subgraph of size at least $k$. 
+
+\textbf{HAM-CYCLE}: Given an undirected graph, does there exist a simple cycle that contains every node in $V$.
+
+\textbf{TSP}: Given a set of $n$ cities and a pairwise distance function, is there a tour of length less than $D$. 
+
+\textbf{Graph Coloring}: Given a graph, can it be minimally colored so that every edge has difference node colors. 
+
+\textbf{Subset-Sum}: Given natural numbers $w_i$ and integer $W$, is there a subset of $w_i$ that adds up to $W$
+
+\section*{Solving NPC}
+
+\subsection*{Branch-and-Bound}
+Keeps track of best solution found so far (upper bound) and for each partial solution computes a lower bound on the objective function.
+If any bounds are not better than the best solution so far, they are pruned. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{BnB}{$P$}
+\State $F \gets \{(\emptyset, P)\},\ B \gets (\infty, (\emptyset, P))$
+\While {$F \neq \emptyset$}
+\State Choose $(X,Y)$ in $F$ and expand it to $(X_i,Y_i)$ configurations
+\For {$(X_i,Y_i)$}
+\If {Solution found}
+\If {$cost(X_i) < B$} $B \gets (cost(X_i,(X_i,Y_i))$
+\EndIf
+\EndIf
+\If {Not dead end}
+\If {$LB(X_i) < B$} $F \gets F \bigcup \{(X_i,Y_i)\}$
+\EndIf
+\EndIf
+\EndFor
+\EndWhile
+\State \Return {$B$} 
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\subsection*{Local Search}
+In this, the algorithm starts from an initial position then iteratively moves to a neighboring position using an evaluation function. 
+
+\textit{Hill-climbing}: Choose neighbor with largest improvement as next state.
+
+\textit{Stochastic}: Randomize initialization step and search steps to allow for suboptimal choices. 
+
+\textit{Simulated Annealing}: Select a neighbor at random. If it is better than current state, go there. Otherwise go there with some probability that decreases over time. 
+
+\textit{Tabu Search}: In each step move to best neighbor solution even if worse than current. Avoids revisiting previously seen solutions with a tabu list of forbidden attributes. 
+
+\textit{Iterated LS}: Generate an initial candidate then perform a LS on it. While termination conditions are not met, perturb current solution and do LS or return to original. 
+
+\subsection*{Approximation}
+In this, performance bounds are guaranteed with quick run-time.
+
+\textit{Def.} The \textit{Ratio bound} is $max\left( \frac{A(x)}{OPT(X)},\frac{OPT(X)}{A(X)}\right) \leq \rho(n)$ for an input $X$ of size $n$. Generally $\rho(n) \geq 1$, though unless $P = NP$ this equality will not hold. 
+
+For this, you can prove that an algorithm will give a solution no worse that $x*OPT$. 
+
+\subsection*{Integer Linear Programming}
+Given $a_{ij}, b_i, c_i$ find $x_j$ that satisfy $\min c'x$ subject to $Ax \geq b$ with $x$ integral. 
+
+\section*{Network Flows}
+An abstraction for material flowing through edges. A directed graph without parallel edges with $c(e)$ equaling the capacity of edge $e$.  
+
+\textit{Def.} An \textit{s-t flow} is a function $f$ from $E \to \R$ that satisfies
+\begin{itemize}
+\item For $e \in E$: $0 \leq f(e) \leq c(e)$
+\item For $v \in V - \{s,t\}$: $\displaystyle\sum_{\text{e into v}} f(e) = \displaystyle\sum_{\text{e out of v}} f(e)$	
+\end{itemize}
+\textit{Def.} The \textit{value} of the flow is $v(f) = \displaystyle\sum_{\text{e out of s}} f(e)$. 
+
+\textit{Def.} An \textit{s-t cut} is a partition $(A,B)$ of $V$ with $s \in A$ and $t \in B$.
+
+\textit{Def.} The \textit{capacity} of cut $(A,B)$ is $cap(A,B) = \displaystyle\sum_{\text{e out of A}} c(e)$. 
+
+Let $f$ be any flow and let $(A,B)$ be any s-t cut. Then $\displaystyle\sum_{\text{e out of A}} f(e) - \displaystyle\sum_{\text{e in to A}} f(e) = v(f)$. 
+
+Weak duality: Let $f$ be any flow and let $(A,B)$ be any s-t cut. Then the value of the flow is at most the capacity of the cut. 
+Corollary: If $v(f) = cap(A,B)$, then $f$ is a max flow and $(A,B)$ is a min s-t cut. 
+
+\textit{Def.} A \textit{residual edge} of $e = (u,v)$ is $e^R = (v,u)$ with $c_f(e) = \begin{cases}
+ c(e) - f(e) \hfill e \in E \\
+ f(e) \hfill e^R \in E
+ \end{cases}$
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{Ford-Fulkerson}{}
+\For {$e \in E$} $f(e) \gets 0$
+\EndFor
+\State $G_f \gets $ residual graph
+\While {$\exists s-t$ path $P \in G_f$}
+\State $f \gets Aug(f, c, P)$
+\State update $G_f$
+\EndWhile
+\State \Return {$f$}
+\EndProcedure
+\Procedure{Aug}{$f,c,P$}
+\State $b \gets$ bottleneck$(P)$
+\For {$e \in P$} 
+\If {$e \in E$} $f(e) \gets f(e) + b$
+\Else $[e^R \in E]\ f(e^R) \gets f(e^R) - b$
+\EndIf
+\EndFor
+\State \Return {$f$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Augmenting path theorem}: Flow $f$ is a max flow $\iff$ there are no augmenting paths. 
+
+\textbf{Max-flow min-cut theorem}: The value of the max flow is equal to the value of the min s-t cut. We have equivalence between
+\begin{enumerate}
+\item $\exists (A,B)$ such that $v(f) = cap(A,B)$
+\item Flow $f$ is a max flow
+\item There is no augmenting path relative to $f$	
+\end{enumerate}
+
+\subsection*{Bipartite Matching}
+Given an undirected, bipartite graph, find the max cardinality matching. 
+
+Can be reduced to a max flow problem by adding nodes $s,t$ with edge capacities 1. 
+
+\textbf{Theorem}: Max cardinality matching equals value of max flow. 
+
+\subsection*{Disjoint Paths}
+Given a directed graph and nodes $s,t$, find the max number of edge-disjoint (no edge in common) s-t paths. 
+
+\textbf{Theorem}: Max number edge-disjoint s-t paths equals max flow by assigning all $c(e) = 1$. 
+
+\subsection*{Network Connectivity}
+Given a digraph and nodes $s,t$, find min number of edges whose removal disconnects s-t. 
+
+\textbf{Theorem}: The max number of edge-disjoint s-t paths is equal to the min number of edges whose removal disconnects s-t. 
+
+Choosing path with highest bottleneck capacity increases flow by max possible amount. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{Max-Flow}{}
+\For {$e \in E$} $f(e) \gets 0$
+\EndFor
+\State $\Delta \gets \min 2^n \geq c$
+\State $G_f \gets $ residual graph
+\While {$\Delta \geq 1$}
+\State $G_f(\Delta) \gets \Delta-G_{res}$
+\While {$\exists P \in G_f(\Delta)$}
+\State $f \gets aug(f,c,P)$
+\State update $G_f(\Delta)$
+\EndWhile
+\State $\Delta \gets \Delta / 2$
+\EndWhile
+\State \Return {$f$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}

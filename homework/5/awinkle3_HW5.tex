@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\pagenumbering{arabic}
+\usepackage{fancyhdr}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{eucal}
+\usepackage{parskip} % removes auto indentation for paragraphs
+\usepackage{enumitem} % changes the indexing for enumerate
+%\setlist[enumerate,1]{label = {(\alph*)}}
+
+\usepackage{mathtools} % used for making a ceiling function
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil} %create ceiling function as \ceil{x}, \ceil*{x} to add \left and \right
+
+\usepackage{listings} % import code into latex
+
+\usepackage{algorithm} % used to write algorithms
+\usepackage[noend]{algpseudocode}
+
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\newcommand{\Mod}[1]{\ (\text{mod}\ #1)}
+\newcommand{\Problem}[1]{\textbf{\large Problem #1}}
+\newcommand{\li}[0]{\liminf_{n\to\infty}}
+\newcommand{\ls}[0]{\limsup_{n\to\infty}}
+\newcommand{\dl}[2]{\displaystyle\lim_{#1 \to #2}}
+\newcommand{\ds}[2]{\displaystyle\sum_{#1}^{#2}}
+\newcommand{\ra}{\Rightarrow}
+
+\linespread{1.5}
+
+\usepackage{float}
+
+\title{CSE 6140 - Homework 5}
+\author{Alexander Winkles}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\vspace{2in}
+
+
+
+\newpage
+
+\Problem{1}
+
+Our goal is to minimize the number of gas stations we visit when traveling from Atlanta to New York using a car that can drive at most $K$ miles before needing to refuel. 
+Let $D$ be the set of gas stations along the route traveled. 
+Then the following algorithm will find the route that minimizes the number of gas stations visited. 
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\Procedure{RoadTrip}{$D, K$}
+\State $G = K$ \Comment{Assigns the initial amount of gas in the tank}
+\State $d_{curr} \gets 0$ \Comment{Assigns the initial gas station stopped at}
+\State $T \gets \emptyset$ \Comment{Assigns the initial trip to be the null set}
+\While {$D \neq \emptyset$} \Comment{Runs code until car reaches NY}
+\State $d_{new} \gets 0$
+\State $d_{new} \gets \displaystyle\max_i \{d_i\ |\ (d_i - d_{curr}) < G\}$ \Comment{Finds the further gas station one can travel to from current position}
+\If {$d_{new} = 0$} \Comment{This means we cannot advance without filling our tank}
+\State $T \gets T \bigcup \{i\}$ \Comment{Adds index from $d_{curr}$ found above to solution}
+\State $G = K$ \Comment{Fill up tank}
+\Else \Comment{This means we can advance without filling our tank}
+\State $G \gets G - (d_{new} - d_{curr})$ \Comment{Finds how much gas is left}
+\For {$j \leq i$} \Comment{Removes gas stations from $D$ that are no longer relevant}
+\State $D = D - \{d_j\}$
+\EndFor
+\State $d_{curr} \gets d_{new}$ \Comment{Tank does not need to be filled}
+\EndIf
+\EndWhile
+\State \Return {$T$}
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+In this algorithm, we find the furthest gas station that our car can travel to and go there.
+Once there, we will either travel to the next furthest one possible or have to refuel, which is decided by the if-else statement. 
+Note that the car will only travel to a new gas station if it will have some arbitrarily small amount of gas left after arriving, which satisfies the requirement that the car must never run out of gas. 
+Analyzing this problem, its time complexity is $\mathcal{O}(n)$, where $n$ is the number of gas stations in $D$, as the worst case scenario is each gas station must be visited. 
+(PROVE THIS)
+
+\Problem{2}
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,45 @@
+Alexander Winkles:
+
+Score - 10
+Contributions
+- Designed approximation algorithm
+- Solved graphs with approximation algorithm
+- Wrote all details related to approximation algorithm in report
+- Wrote introduction and problem section in report
+- Ran LS1 graphs and obtained their solutions
+- Wrote README file
+- Wrote runproject file
+
+Overall I feel like I contributed a good amount both with my algorithm I was assigned as well as various parts of the report. 
+In addition to writing the approximation algorithm and running it on all graph instances, I designed the runproject file that
+is called to use any of the algorithms with any file. 
+I additionally wrote the README file for our code that outlines how to run any graph.
+
+Junlin Liu:
+
+Score - 10
+Contributions
+- Designed bnb algorithm
+- Solved graphs with bnb
+- Did LaTeX formatting for report
+- Ran LS2 graphs and obtained solutions
+- Made graphs for LS2
+- Wrote all parts in the report related to bnb, along with formatting
+- Made LS1 tables
+
+Junlin was an excellent teamate who always did his work on time. Additionally he was willing to help with various aspects of
+the project and was always asking if he could help us. Because of this I believe he deserves a 10.
+
+Deepthi Venkitaramanan:
+
+Score - 8
+Contributions
+- Designed LS1 algorithm
+- Designed LS2 algorithm
+- Made Github for project
+- Made graphs for LS1
+- Wrote all parts related to local search in report
+
+Deepthi did a good job designing her algorithms and writing about them. Unfortunately she passed on a lot of the computation work
+to Junlin and me because she had other projects to do. Additionally, she didn't do several parts of the report until an hour before
+the report was due. Because of this, I believe she deserves an 8.
